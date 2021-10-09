@@ -5,7 +5,7 @@ autor: Mikhail625@protonmail.com
 */
 
 /* Задания. Условия.
-Напишите тесты производительности для расчёта дистанции между точками с помощью BenchmarkDotNet. 
+Напишите тесты производительности для расчёта дистанции между точками с помощью BenchmarkDotNet *). 
 Рекомендуем сгенерировать заранее массив данных, чтобы расчёт шёл с различными значениями, 
 но сам код генерации должен происходить вне участка кода, время которого будет тестироваться.
 
@@ -16,8 +16,10 @@ autor: Mikhail625@protonmail.com
 Метод расчёта дистанции без квадратного корня со значимым типом (PointStruct — координаты типа float).
 Результаты можно оформить в виде списка или таблицы, в которой наглядно можно будет увидеть время выполнения того или иного метода.
 
- *
- *
+ 
+ *)  Next you need to run the following from your Package Manager console to install the BenchmarkDotNet nuget package :
+
+Install-Package BenchmarkDotNet
  */
 
 
@@ -40,11 +42,59 @@ namespace gbQ2lesson_003
 
 
 
-        class UTest
+    } // end of class Programm
+
+
+    class UTest
+    {
+
+            public Stopwatch sw = new Stopwatch();
+            public string resultB = "";
+            public TimeSpan ts ;
+
+
+
+        public void Start()
         {
-            public bool IsPrime(int digit)
-            { }
+            resultB = "";
+            sw.Start();
+        }
+
+        public void Stop()
+        {
+            sw.Stop();
+            ts = sw.Elapsed;
+            
+            // Format and display the TimeSpan value.
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds,
+                ts.Milliseconds / 10);
+            Console.WriteLine("RunTime " + elapsedTime);
+            resultB = elapsedTime;
+        }
+
+        public string DisplayResult() { return resultB; }
 
 
-            } // end of class Programm
+} // enf of   class UTest
+
+    
+
+
+
+    struct Point
+    {
+        public string namePoint;
+        public int x;
+        public int y;
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Name: {namePoint}  X: {x}    Y: {y}");
+        }
+
+    }
+
+
+
+
 }  // end of namespace gbQ2lesson_003
