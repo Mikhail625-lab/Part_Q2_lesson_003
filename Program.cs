@@ -30,6 +30,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Numerics;
+using System.Threading;
 
 
 namespace gbQ2lesson_003
@@ -38,6 +39,7 @@ namespace gbQ2lesson_003
     {
         static void Main(string[] args)
         {
+          
         } // end of Main()
 
 
@@ -45,14 +47,48 @@ namespace gbQ2lesson_003
     } // end of class Programm
 
 
+    struct Point
+    {
+        public string namePoint;
+        public int x;
+        public int y;
+
+        // конструктор 1 : 
+        public Point(string name, int x , int y)
+        {
+            this.namePoint = name;
+            this.x = x;
+            this.y = y;
+        }
+
+        // конструктор 2  : 
+        /*Структуры не могут содержать явных конструкторов без параметров.
+        public Point()
+        {
+            Random rnd1 = new Random();
+            System.Threading.Thread.Sleep(1000); 
+            Random rnd2 = new Random();
+
+            this.x = rnd1.Next(0,150);
+            this.y = rnd2.Next(0,150);
+            namePoint = "X"+ this.x+"_Y"+ this.y;
+        }
+
+        */
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Name: {namePoint}  X: {x}    Y: {y}");
+        }
+
+    } // end 0f truct Point
+
     class UTest
     {
 
             public Stopwatch sw = new Stopwatch();
             public string resultB = "";
             public TimeSpan ts ;
-
-
 
         public void Start()
         {
@@ -75,26 +111,7 @@ namespace gbQ2lesson_003
 
         public string DisplayResult() { return resultB; }
 
-
 } // enf of   class UTest
 
-    
-
-
-
-    struct Point
-    {
-        public string namePoint;
-        public int x;
-        public int y;
-        public void DisplayInfo()
-        {
-            Console.WriteLine($"Name: {namePoint}  X: {x}    Y: {y}");
-        }
-
-    }
-
-
-
-
+   
 }  // end of namespace gbQ2lesson_003
