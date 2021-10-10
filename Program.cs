@@ -47,6 +47,31 @@ namespace gbQ2lesson_003
 
     } // end of class Programm
 
+   class TaskStart
+    { 
+     public void Run (string TaskName)
+        { 
+            Tasks t1 = new Tasks();
+
+
+        }
+     
+    }// end of class TaskStart
+
+
+    class Tasks
+    { 
+        public void Task001 ()
+        {   Console.WriteLine("OK/ Now trying run the .. {TaskStart}");  //  Run (string TaskName)
+            Console.ReadKey(); 
+        
+        Ptest pt1 =new Ptest();
+
+        }
+    
+    } // end class Tasks 
+
+
 
     struct Point
     {
@@ -152,26 +177,5 @@ namespace gbQ2lesson_003
         }
     } //   class Ptest // prepare for test
 
-   class TaskStart
-    { 
-     public void Run (string TaskName)
-        { 
-            Tasks t1 = new Tasks();
-            Point[] pointArr = new Point[];
-        }
-     
-    }// end of class TaskStart
-
-    class Tasks
-    { 
-        public void Task001 ()
-        {   Console.WriteLine("OK/ Now trying run the .. {TaskStart}");  //  Run (string TaskName)
-            Console.ReadKey(); 
-        
-        Ptest pt1 =new Ptest();
-
-        }
-    
-    } // end class Tasks 
 
 }  // end of namespace gbQ2lesson_003
