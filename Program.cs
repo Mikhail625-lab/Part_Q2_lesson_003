@@ -39,7 +39,8 @@ namespace gbQ2lesson_003
     {
         static void Main(string[] args)
         {
-          
+          TaskStart ts = new TaskStart();
+        ts.Run ("Task001");
         } // end of Main()
 
 
@@ -111,7 +112,66 @@ namespace gbQ2lesson_003
 
         public string DisplayResult() { return resultB; }
 
-} // enf of   class UTest
+    } // enf of   class UTest
 
-   
+   class Ptest // prepare for test
+    { 
+        public Point[] CreateArrPoint (int sizeArr) //  переделать в структуру кортеж
+        {   int i =0;
+
+            Random rnd1 = new Random();//System.Threading.Thread.Sleep(1000);
+            Random rnd2 = new Random();
+            Random rnd3 = new Random();
+
+            int xR = rnd1.Next(0, 150);Thread.Sleep(1001);
+            int yR = rnd2.Next(0, 150);
+            int rp1 = rnd3.Next(10,500);
+
+            Point[] pa1 = new Point[sizeArr];
+
+            do
+            {
+                pa1[i].namePoint = i+ "._" + "X:"+xR + "_Y:"+yR;
+                pa1[i].x = xR; 
+                pa1[i].y = yR;
+                i++;
+                Thread.Sleep(rp1); xR = rnd1.Next(0, 150);rp1 = rnd3.Next(10,500);
+                Thread.Sleep(rp1); yR = rnd2.Next(0, 150);
+            }
+            while (i <sizeArr);
+
+            i--;
+            do
+            {
+                Console.WriteLine("name:[{0}]\tX:[{1}]\tY:[{2}]"  , pa1[i].namePoint, pa1[i].x , pa1[i].y);
+                i--;
+            }
+            while (i>= 0);
+
+     return pa1;
+        }
+    } //   class Ptest // prepare for test
+
+   class TaskStart
+    { 
+     public void Run (string TaskName)
+        { 
+            Tasks t1 = new Tasks();
+            Point[] pointArr = new Point[];
+        }
+     
+    }// end of class TaskStart
+
+    class Tasks
+    { 
+        public void Task001 ()
+        {   Console.WriteLine("OK/ Now trying run the .. {TaskStart}");  //  Run (string TaskName)
+            Console.ReadKey(); 
+        
+        Ptest pt1 =new Ptest();
+
+        }
+    
+    } // end class Tasks 
+
 }  // end of namespace gbQ2lesson_003
