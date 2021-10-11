@@ -38,34 +38,40 @@ namespace gbQ2lesson_003
     class Program
     {
         static void Main(string[] args)
-        {
-          TaskStart ts = new TaskStart();
-        ts.Run ("Task001");
+        { // для минимизации кода в Main () стартуем запускалку () задач ..
+            TaskStart ts = new TaskStart(); ts.Run ("Task001");
         } // end of Main()
-
-
 
     } // end of class Programm
 
-   class TaskStart
-    { 
-     public void Run (string TaskName)
+   class TaskStart// class TaskStart - это диспечер\запускалка всех задач (ДЗ). 
+                  // Старт задач - последовательно. Либо (более продвинутый вариант) на выбор, через меню
+
+    {
+        public void Run (string TaskName)
         { 
             Tasks t1 = new Tasks();
-
+            t1.Task001();
 
         }
      
     }// end of class TaskStart
 
 
-    class Tasks
+    class Tasks  // class Tasks - непосредственно код решения задач 
     { 
         public void Task001 ()
         {   Console.WriteLine("OK/ Now trying run the .. {TaskStart}");  //  Run (string TaskName)
-            Console.ReadKey(); 
-        
-        Ptest pt1 =new Ptest();
+            Console.ReadKey();
+            int sizeArr1 = 22; // размер тестового массива
+            Point[] pa1 = new Point[sizeArr1];
+
+           Ptest pt1 =new Ptest();
+            pa1 = pt1.CreateArrPoint(sizeArr1);
+
+
+            Console.ReadKey();
+
 
         }
     
