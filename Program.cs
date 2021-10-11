@@ -9,12 +9,15 @@ autor: Mikhail625@protonmail.com
 Рекомендуем сгенерировать заранее массив данных, чтобы расчёт шёл с различными значениями, 
 но сам код генерации должен происходить вне участка кода, время которого будет тестироваться.
 
-Для каких методов потребуется написать тест:
-Обычный метод расчёта дистанции со ссылочным типом (PointClass — координаты типа float).
-Обычный метод расчёта дистанции со значимым типом (PointStruct — координаты типа float).
-Обычный метод расчёта дистанции со значимым типом (PointStruct — координаты типа double).
-Метод расчёта дистанции без квадратного корня со значимым типом (PointStruct — координаты типа float).
-Результаты можно оформить в виде списка или таблицы, в которой наглядно можно будет увидеть время выполнения того или иного метода.
+Для каких методов потребуется написать тест
+... обычный метод расчёта дистанции :
+1. ... со ссылочным типом (PointClass — координаты типа float).
+2. ... со значимым типом (PointStruct — координаты типа float).
+3. ... со значимым типом (PointStruct — координаты типа double).
+4. ... без квадратного корня со значимым типом (PointStruct — координаты типа float).
+
+    Результаты можно оформить в виде списка или таблицы, в которой наглядно можно будет увидеть 
+    время выполнения того или иного метода.
 
  
  *)  Next you need to run the following from your Package Manager console to install the BenchmarkDotNet nuget package :
@@ -79,34 +82,19 @@ namespace gbQ2lesson_003
 
 
 
-    struct Point
+    struct PointStruct
     {
         public string namePoint;
         public int x;
         public int y;
 
         // конструктор 1 : 
-        public Point(string name, int x , int y)
+        public PointStruct(string name, int x , int y)
         {
             this.namePoint = name;
             this.x = x;
             this.y = y;
         }
-
-        // конструктор 2  : 
-        /*Структуры не могут содержать явных конструкторов без параметров.
-        public Point()
-        {
-            Random rnd1 = new Random();
-            System.Threading.Thread.Sleep(1000); 
-            Random rnd2 = new Random();
-
-            this.x = rnd1.Next(0,150);
-            this.y = rnd2.Next(0,150);
-            namePoint = "X"+ this.x+"_Y"+ this.y;
-        }
-
-        */
 
         public void DisplayInfo()
         {
@@ -114,6 +102,34 @@ namespace gbQ2lesson_003
         }
 
     } // end 0f truct Point
+
+    class PointClass
+    {
+        public string namePoint;
+        public int x;
+        public int y;
+
+        // конструктор 1 : 
+        public PointClass(string name, int x , int y)
+        {
+            this.namePoint = name;
+            this.x = x;
+            this.y = y;
+        }
+
+        // конструктор 2  : 
+        //Структуры не могут содержать явных конструкторов без параметров.
+        public PointClass()
+        {
+            Random rnd1 = new Random();
+            Random rnd2 = new Random();
+
+            this.x = rnd1.Next(0,150);
+            this.y = rnd2.Next(0,150);
+            namePoint = "X"+ this.x+"_Y"+ this.y;
+        }
+    }
+
 
     class UTest
     {
